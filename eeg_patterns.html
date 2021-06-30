@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>EEG and pattern formation in the brain</title>
+    <meta name="description"
+          content="From EEG microstates to continuous phase patterns">
+    <meta name="author" content="Frederic von Wegner">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css"
+          id="highlight-theme">
+    <!--
+    black, white, league, sky, beige, simple, serif, blood, night, moon, solarized
+    -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Title -->
+        <section>
+          <a href="https://frederic-vw.github.io/">
+            <img src="./images2/patterns2.png"></img>
+          </a>
+          <h3>Spatio-temporal EEG patterns</h3>
+          <p style="font-size: 0.9em">Periodic microstates, topological defects, and phase rotors</p>
+          <p>
+            <small><a href="https://frederic-vw.github.io/">
+              Frederic von Wegner</a>
+            </small>
+          </p>
+        </section>
+
+        <!-- EEG -->
+        <section>
+          <h3>Electroencephalography (EEG)</h3>
+          <p style="font-size: 0.8em">A common representation of EEG signals: channels x time
+            <br>(multivariate time series)
+          </p>
+          <img src="./images2/eeg_sample3.png" width=1000></img>
+        </section>
+
+        <!-- EEG animated -->
+        <section>
+          <p>EEG: animated view</p>
+          <video src="./videos2/eeg_graph.webm"
+                 width=400 controls preload data-autoplay>
+            Example EEG animation
+          </video>
+          <p>spatio-temporal patterns?</p>
+        </section>
+
+        <!-- Microstates -->
+        <section>
+          <p>Clustering topographies into microstates</p>
+            <img src="./images2/group_ms30_1200.png" width=1000></img>
+          <p style="font-size: 0.6em">Review: Michel and Koenig, NeuroImage, 2018</p>
+        </section>
+
+        <!-- EEG + microstate animation -->
+        <section>
+          <p>EEG: continuous vs. microstates</p>
+          <video src="./videos2/eeg_cont_ms.webm"
+                 width=400 controls preload data-autoplay>
+            Example EEG animation
+          </video>
+          <p style="font-size: 0.8em">Q: do microstate sequences show temporal ordering?</p>
+        </section>
+
+        <!-- One-step transitions -->
+        <section>
+          <p>Information-theoretical analysis<p>
+            <img src="./images2/seq_transitionmatrix.png" width=1200></img>
+            <p style="font-size: 0.8em">Analyze transition dynamics...</p>
+        </section>
+
+        <!-- Transition matrix / Markovianity -->
+        <section>
+          <!-- 1-step sufficient? -->
+          <section>
+            <p>Are one-step transitions sufficient?<p>
+              <img src="./images2/transitionmatrix.png" width=1000></img>
+              <p style="font-size: 0.8em">If yes, then <em>memoryless</em> (Markov process)</p>
+          </section>
+
+          <!-- Markovianity statistic -->
+          <section>
+            <p>Statistical test for Markovianity:<p>
+              <img src="./images2/Markovianity_1.png" width=600></img>
+              <p class="fragment" style="font-size: 0.8em">
+                Microstate sequences are non-Markovian!<br>
+                <span style="font-size: 0.6em">(von Wegner et al., NeuroImage, 2017)</span>
+              </p>
+          </section>
+        </section>
+
+        <!-- Microstate AIF -->
+        <section>
+
+          <!-- EEG PSD/ACF -->
+          <section>
+            <p style="font-size: 1.2em">EEG time series = oscillations</p>
+            <img src="./images2/EEG_occipital.png" width=500></img>
+            <p style="font-size: 0.8em">Periodicities are quantified by:<br>
+              <strong>Power spectral density / autocorrelation function (ACF)</strong>
+            </p>
+            <img src="./images2/20080514_PSD_ACF.png" width=800></img>
+          </section>
+
+          <!-- Microstate AIF -->
+          <section>
+            <p>Microstate analogy: autoinformation function (AIF)<p>
+              <img src="./images2/seq_aif.png" width=1000></img>
+              <img src="./images2/ms_mutinf.png" width=500></img>
+          </section>
+
+          <!-- Microstate AIF -->
+          <section>
+            <p>Autoinformation function (AIF)<p>
+              <img src="./images2/aif_equation.png" width=400></img>
+              <img src="./images2/ms_aif.png" width=1000></img>
+              <span style="font-size: 0.6em">(von Wegner et al., NeuroImage, 2017)</span>
+              <p class="fragment" style="font-size: 1.0em">Microstate sequences are non-Markovian!</p>
+              <p class="fragment" style="font-size: 1.0em">Microstate sequences are periodic!</p>
+          </section>
+
+          <!-- EEG PSD/ACF + AIF -->
+          <section>
+            <p style="font-size: 1.2em">Microstate oscillations follow the
+            dominant EEG frequency (10 Hz)</p>
+            <img src="./images2/20080514_PSD_ACF_AIF.png" width=800></img>
+          </section>
+
+          <!-- online microstate analysis -->
+          <section>
+            <p style="font-size: 1.0em">Online microstate analysis</p>
+            <div style="font-size: 0.6em">check if your microstates are periodic...</div>
+            <div>
+              <a href="https://frederic-vw.github.io/msa-online" target="_blank">
+                <span style="font-size: 0.6em">https://frederic-vw.github.io/msa-online</span>
+              </a>
+            </div>
+            <iframe data-src="https://frederic-vw.github.io/msa-online"
+                    id="iframe0"
+                    width="800" height="400"
+                    frameborder="0" marginwidth="0" marginheight="0"
+                    scrolling="no"
+                    style="border:3px solid #666; margin-bottom:5px; max-width: 100%;"
+                    allowfullscreen>
+            </iframe>
+          </section>
+
+          <script>
+            var iframe = document.getElementById('iframe0');
+            iframe.style.background = 'white';
+            iframe.contentWindow.document.body.style.backgroundColor = 'white';
+          </script>
+
+        </section>
+
+        <!-- Why periodic? -->
+        <section>
+          <p style="font-size: 1.2em">Why are microstate sequences periodic?</p>
+        </section>
+
+        <!-- EEG Hilbert transform -->
+        <section>
+          <section>
+            <p style="font-size: 1.2em">Hilbert transform</p>
+            <div style="display: inline-block;">
+              <div class="fragment" style="font-size: 0.7em; display: inline-block;">
+                Band-pass filtered EEG: &alpha;(r,t)
+              </div>
+              <div class="fragment" style="display: inline-block; vertical-align: middle;">
+                <img src="./images2/hilbert_transform_eq.jpg" width=320></img>
+              </div>
+              <div class="fragment" style="display: inline-block; vertical-align: middle;">
+                <img src="./images2/eeg_complex_amp_phase.jpg" width=220></img>
+              </div>
+            </div>
+            <div class="fragment">
+              <img src="./images2/Fig_1_Hilbert.jpg" width=800></img>
+            </div>
+            <p style="font-size: 1.0em">oscillation: amplitude + phase</p>
+          </section>
+
+          <section>
+            <p style="font-size: 1.0em; display: inline-block;">
+              EEG: amplitude-phase decomposition
+            </p>
+            <div style="font-size: 0.7em">
+              &alpha; oscillation - amplitude - phase
+            </div>
+            <video src="./videos2/eeg_cont.webm"
+                   width=800 controls preload data-autoplay loop>
+            </video>
+            <p class="fragment" style="font-size: 1.0em">phase rotors!</p>
+          </section>
+        </section>
+
+        <!-- EEG phase gradients and phase rotors -->
+        <section>
+
+          <!-- Phase gradient -->
+          <section>
+            <p style="font-size: 1.2em">Phase rotor detection</p>
+            <div class="fragment" style="display: inline-block">
+              <div style="font-size: 0.7em; display: inline-block;">Phase gradient:</div>
+              <div style="display: inline-block; vertical-align: middle;">
+                <img src="./images2/phase_gradient.png" width=400></img>
+              </div>
+            </div>
+            <img class="fragment" src="./images2/gradphi.png" width=500></img>
+          </section>
+
+          <!-- Top charge equation -->
+          <section>
+            <p style="font-size: 1.2em">Topological charge</p>
+            <img src="./images2/topcharge_eq.png" width=400></img>
+            <img src="./images2/gradphi_topcharge.png" width=600></img>
+          </section>
+
+          <!-- Top charge: no singularity -->
+          <section>
+            <p style="font-size: 1.2em">No singularity:</p>
+            \begin{aligned}
+            \frac{1}{2\pi} \oint_C \nabla \phi dl &amp; = 0
+            \end{aligned}
+            <p style="font-size: 0.6em">Walking (integrating) along a closed
+              contour, gradient changes cancel out.</p>
+            <div class="fragment">
+              <p style="font-size: 0.6em">Gravitation field analogy:</p>
+              <img src="./images2/topo_map_02.jpg" width=400></img>
+            </div>
+          </section>
+
+          <!-- Top charge: singularity -->
+          <section>
+            <p style="font-size: 1.2em">Singularity:</p>
+            \begin{aligned}
+            \frac{1}{2\pi} \oint_C \nabla \phi dl &amp; = \pm 1, 2, \ldots
+            \end{aligned}
+            <p style="font-size: 0.6em">Walking (integrating) along a closed
+              contour, we gain (lose) 2&pi;, 4&pi;, ...</p>
+            <div class="fragment">
+              <p style="font-size: 0.6em">Gravitation field analogy:</p>
+              <img src="./images2/Escher_AscDesc_anim01.gif" width=300></img>
+            </div>
+          </section>
+
+          <!-- Amphidromies -->
+          <section>
+            <p style="font-size: 1.0em">Analogy: ocean waves</p>
+            <img src="./images2/propagation-des-ondes.jpg" width=750></img>
+            <div style="font-size: 0.5em">
+              Wikimedia Commons: File FMIB 36811
+            </div>
+            <!--
+            (Propagation_des_Ondes_de_Marees_sur_l%2527Atlantique_et_l%2527Ocean_Indien_(Amphidromies).jpeg
+            -->
+          </section>
+
+          <section>
+            <p style="font-size: 1.0em">Analogy: ocean waves</p>
+            <img src="./images2/TideNodes0.gif" width=800></img>
+            <div style="font-size: 0.4em">http://www.freegrab.net/Tide%20waves.gif</div>
+          </section>
+
+          <section>
+            <p style="font-size: 1.0em">Many more examples...</p>
+            <img src="./images2/Winfree_Geometry.jpeg" width=360></img>
+          </section>
+
+        </section>
+
+        <!-- EEG examples -->
+        <section>
+
+        <!-- EEG example-1 -->
+        <section>
+          <p style="font-size: 1.0em">Phase rotors explain periodic microstates</p>
+          <img src="./images2/Figure_3_S1.jpg" width=800></img>
+          <p style="font-size: 0.6em">(von Wegner et al., NeuroImage, 2021)</p>
+        </section>
+
+        <!-- EEG example-1 -->
+        <section>
+          <p style="font-size: 1.0em">EEG phase rotor example-1</p>
+          <video src="./videos2/Mov1_Fig_2.mp4"
+                 width=800 controls preload data-autoplay loop>
+          </video>
+        </section>
+
+        <!-- EEG example-2 -->
+        <section>
+          <p style="font-size: 1.0em">EEG phase rotor example-2</p>
+          <video src="./videos2/Mov2_Fig_3.mp4"
+                 width=800 controls preload data-autoplay loop>
+          </video>
+        </section>
+
+        <!-- EEG example-3 -->
+        <section>
+          <p style="font-size: 1.0em">EEG phase rotor example-3</p>
+          <video src="./videos2/Mov3_Fig_4.mp4"
+                 width=800 controls preload data-autoplay loop>
+          </video>
+        </section>
+
+        <!-- EEG example-4 -->
+        <section>
+          <p style="font-size: 1.0em">EEG phase rotor example-4</p>
+          <video src="./videos2/Mov4_Fig_5.mp4"
+                 width=800 controls preload data-autoplay loop>
+          </video>
+        </section>
+
+      </section>
+
+        <!-- Phase rotors in a model -->
+        <section>
+
+          <section>
+            <p style="font-size: 1.2em">Reproducing phase rotors<br> in a basic EEG model</p>
+          </section>
+
+          <!-- Jansen-Rit model -->
+          <section>
+            <p style="font-size: 1.2em">EEG alpha rhythm in neural mass models</p>
+            <div style="font-size: 0.6em">
+              e.g. Jansen-Rit model (Biol. Cyb. 73, 1995)
+            </p>
+            <img src="./images2/neuralmassmodel.png" width=800></img>
+          </section>
+
+          <!-- Jansen-Rit model - Hopf bifurcation -->
+          <section>
+            <p style="font-size: 1.0em">Alpha rhythm is created at a Hopf bifurcation</p>
+            <img src="./images2/nmm_hopf_bifurcation.png" width=600></img>
+          </section>
+
+          <!-- Stuart-Landau model -->
+          <section>
+            <p style="font-size: 1.0em">Stuart-Landau model</p>
+            <div style="font-size: 0.5em">spatially distributed, coupled Hopf oscillators</p>
+            <img src="./images2/SLdiff_eq.png" width=600></img>
+            <div style="font-size: 1.0em">supercritical Hopf bifurcation at &mu;=0</p>
+            <img src="./images2/hopf_oscillator.png" width=400></img>
+          </section>
+
+          <!-- CSLE: single rotor -->
+          <section>
+            <p style="font-size: 1.0em">Stuart-Landau (2D) example 1</p>
+            <video src="./videos2/Mov5_CSLE_S1.mp4"
+                   width=400 controls preload data-autoplay loop>
+            </video>
+            <p style="font-size: 0.6em">
+              Coupled oscillators create a single phase rotor at the critical point &mu;=0
+            </p>
+          </section>
+
+          <!-- CSLE: pair of rotors -->
+          <section>
+            <p style="font-size: 1.0em">Stuart-Landau (2D) example 2</p>
+            <video src="./videos2/Mov6_CSLE_S2.mp4"
+                   width=400 controls preload data-autoplay loop>
+            </video>
+            <p style="font-size: 0.6em">
+              Coupled oscillators create a pair of phase rotors at the critical point &mu;=0
+            </p>
+          </section>
+        </section>
+
+        <!-- Conclusions -->
+        <section>
+          <h2 style="font-size: 1.2em">Conclusions</h2>
+          <ul style="font-size: 0.8em">
+            <li class="fragment">EEG dynamics can be compressed into discrete microstate sequences</li>
+            <li class="fragment">Microsate sequences inherit EEG periodicity</li>
+            <li class="fragment">Periodic spatial patterns reflect phase rotors</li>
+            <li class="fragment">Phase rotors reflect near-critical coupled oscillators</li>
+          </ul>
+        </section>
+      </section>
+
+        <script src="dist/reveal.js"></script>
+        <script src="plugin/math/math.js"></script>
+        <script src="plugin/zoom/zoom.js"></script>
+        <script src="plugin/notes/notes.js"></script>
+        <script src="plugin/search/search.js"></script>
+        <script src="plugin/markdown/markdown.js"></script>
+        <script src="plugin/highlight/highlight.js"></script>
+        <script>
+          // Also available as an ES module, see:
+          // https://revealjs.com/initialization/
+          Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            math: {
+              mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+              config: 'TeX-AMS_HTML-full',
+              // pass other options into `MathJax.Hub.Config()`
+              TeX: { Macros: { RR: "{\\bf R}" } }
+            },
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [ RevealMath, RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
