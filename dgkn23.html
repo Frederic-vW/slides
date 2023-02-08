@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Recurrent EEG patterns and how they change in sleep and sedation</title>
+    <title>Periodic EEG features in light sleep and propofol sedation</title>
     <meta name="description"
           content="Recurrent EEG patterns">
     <meta name="author" content="Frederic von Wegner">
@@ -24,6 +24,7 @@
     -->
     <link rel="stylesheet" href="./dgkn23/verticalfix.css">
   </head>
+
   <body>
     <!--
     In part 1 of the symposium, Frederic von Wegner based on information-theoretical
@@ -103,13 +104,14 @@
                 <br>
                 <ul>
                   <li class="fragment fade-left" style="font-size:24px">
-                    EEG records lumped cortical electrical activity
+                    EEG records electrical activity from several
+                    cm<sup>2</sup> of cortex
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
-                    each electrode records PSPs of millions of neurons
+                    each electrode records PSPs of (tens of) millions of neurons
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
-                    volume conduction `smears` source activity
+                    volume conduction averages (`smears`) source activity
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
                     EEG reflects excitability, neuronal synchrony, and connectivity
@@ -261,22 +263,22 @@
                     n=32 healthy subjects
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
-                    simultaneous EEG-fMRI recordings (fMRI not used here)
+                    Simultaneous EEG-fMRI recordings (fMRI not used here)
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
                     30 channel EEG (subset of 10-10 system)
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
-                    sleep stages manually scored (AASM rules)
+                    Sleep stages manually scored (AASM rules)
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
                     <span style="font-weight: bold">
-                    conditions:
+                    Conditions:
                     </span>
                     wake (W), light sleep (N1)
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
-                    relevant publications:
+                    Example publications:
                     <span style="font-size: 80%">
                       Brodbeck et al., 2012,
                       Kuhn et al., 2014
@@ -297,21 +299,28 @@
                     </span>
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
-                    n=20 neurologically healthy subjects before surgery
+                    n=20 neurologically healthy subjects
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
                     128-channel EEG ('clean' subset of 91 channels used)
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
-                    sedation levels monitored by propofol plasma concentration
-                  <li class="fragment fade-left" style="font-size:24px">
-                    <span style="font-weight: bold">
-                    conditions:
-                  </span>
-                    baseline, mild and moderate sedation, recovery
+                    Sedation levels monitored by propofol plasma concentration
                   </li>
                   <li class="fragment fade-left" style="font-size:24px">
-                    published by:
+                    <span style="font-weight: bold">
+                      Conditions:
+                    </span>
+                    baseline, mild and moderate sedation, recovery.
+                    <span style="font-weight:bold; font-size:20px">
+                      Note:
+                      <span style="font-weight:normal; font-size:20px">
+                        Moderate sedation: still responsive, reaction time delays
+                      </span>
+                    </span>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Published by:
                     <span style="font-size: 80%">
                       Chennu et al., PLoS Comp Biol 2016, data
                       repository:
@@ -439,18 +448,81 @@
 
           </section>
 
+          <!-- Microstate maps and brain netwokrs -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>EEG microstates and brain networks
+              </h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- Left: maps & brain networks -->
+              <br>
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/microstate_maps_networks.png" width=100%>
+              </div>
+              <!-- Right: explanations -->
+              <div class="fragment fade-left"  style="float: left; width: 40%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Resting-state microstate maps can be mapped to their
+                    likely (brain-wide) current sources
+                    <span style="font-size:75%">
+                      (Custo et al., Brain Connectivity, 2017)
+                    </span>
+                  </li>
+                  <br>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Map C seems to correspond to the default mode network (DMN),
+                    others are less clear
+                  </li>
+                  <br>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight:bold">
+                      Take-home:
+                    </span>
+                      when you see a microstate label (A..D), think "brain network"
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
           <!-- Summary / compression -->
           <section>
             <!-- header: title -->
             <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
-              <h3>Step 3: Microstate data compression</h3>
+              <h3>Microstates and data compression</h3>
             </div>
 
             <div>
               <br>
-              <!--
-              <img src="./dgkn23/S002R02_avgref_t0500-0800_graph.gif" width=20%;>
-              -->
+              <ul>
+                <li class="fragment fade-left">
+                  Initial data set: 30 channels x 16 bit (for instance)
+                </li>
+                <br>
+                <li class="fragment fade-left">
+                  Microstate sequence: single letter (A...D) = 2 bit
+                </li>
+                <br>
+                <li class="fragment fade-left">
+                  Compression factor: 240
+                </li>
+                <br>
+                <li class="fragment fade-left">
+                  Question: can this encode enough information to capture
+                  subtle differences in alertness?
+                </li>
+              </ul>
             </div>
 
             <!-- footer -->
@@ -522,6 +594,98 @@
 
         </section>
 
+        <!-- SLIDE # X: PREVIOUS RESULTS -->
+        <section data-transition="fade">
+
+          <!-- periodicity -->
+          <section>
+            <!-- header: title -->
+            <div style="position:absolute;top:0;left:0%;width:100%;height:5%;">
+              <h3>Previous results</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- EEG animation -->
+              <div style="float: left; width: 50%;">
+                <video src="./dgkn23/20080514TT_frames3000_3500_osc_25fps.mp4"
+                       width=240 autoplay controls loop preload>
+                  Example EEG animation
+                </video>
+              </div>
+              <!-- comments -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    EEG topographies at rest are periodic
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Their frequency is approx. twice the alpha frequency (20 Hz)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Periodicity is quantified by information-theoretical measures
+                    <img src="./dgkn23/aif_wake.png" width=100%;>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Remaining question: frequency doubling?
+                    (10 Hz EEG &rarr; 20 Hz microstates)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position:absolute;bottom:0;left:10%;height:10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- frequency doubling -->
+          <section>
+            <!-- header: title -->
+            <div style="position:absolute;top:0;left:0%;width:100%;height:5%;">
+              <h3>Frequency doubling</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- frequency doubling -->
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/microstate_frequency_doubling.png"
+                     width=100%;>
+              </div>
+              <!-- EEG properties -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Explained by the microstate algorithm - ignores polarity
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    EEG polarity inverts every 50 ms (half an alpha phase),
+                    both are mapped to microstate C (e.g. 48, 96 ms)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight:bold">
+                      Remember:
+                    </span>
+                    the microstate algorithm doubles the dominant EEG frequency
+                    <img src="./dgkn23/microstate_frequency_doubling_spectrum.png"
+                         width=100%;>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position:absolute;bottom:0;left:10%;height:10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+        </section>
+
         <!-- SLIDE # X: RESULTS -->
         <section data-transition="fade">
 
@@ -530,7 +694,12 @@
             <!-- header: title -->
             <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
               <h3>Results</h3>
-              <div>Q1: Loss of consciousness - loss of topography?</div>
+              <div>
+                <span style="font-weight:bold">Question:
+                </span>
+                <span style="font-size:32px">
+                  Loss of consciousness - loss of topography?</div>
+                </span>
             </div>
 
             <!-- main slide content -->
@@ -683,7 +852,7 @@
 
             <!-- main slide content -->
             <div style="overflow: hidden; height: 90%;">
-              <!-- propofol spectral analysis -->
+              <!-- AIF analysis sleep (W/N1) -->
               <div style="float: left; width: 50%;">
                 <img src="./dgkn23/aif_sleep.png" width=100%;>
               </div>
@@ -704,6 +873,46 @@
                   <li class="fragment fade-left" style="font-size:24px">
                     N1, light sleep: EEG channels (left) lose their periodicity,
                     microstate sequences (right) too
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- PSDs sleep -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Results</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- W/N1 spectral analysis -->
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/psd512_sleep.png" width=100%;>
+              </div>
+              <!-- explanations -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight: bold">
+                      Spectral analysis - sleep
+                    </span>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    W, wakeful: EEG main frequency (left) 10 Hz,
+                    microstate sequences ~ 20 Hz
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    N1, light sleep: EEG channels (left) lose 10 Hz alpha
+                    periodicity, microstate sequences (right) too
                   </li>
                 </ul>
               </div>
@@ -751,6 +960,59 @@
                   In the analyzed conditions, periodic, coherent scalp-wide
                   EEG patterns are a signature of intact vigilance (awareness,
                   consciousness)
+                </li>
+              </ul>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+            <!--
+            <br>
+            <div class="fragment">
+              <a href="#" class="navigate-down">
+                <img class="r-frame" style="background: rgba(255,255,255,0.1);"
+                     width="80"
+                     data-src="https://static.slid.es/reveal/arrow.png"
+                     alt="Down arrow">
+              </a>
+            </div>
+            -->
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: OUTLOOK / EXPLANATIONS -->
+        <section data-transition="fade">
+
+          <!-- Outlook -->
+          <section>
+            <!-- header: title -->
+            <div style="position:absolute; top:0; left:0%; width:100%; height:5%;">
+              <h3>Explanations & Outlook</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div>
+              <ul>
+                <li class="fragment fade-left" style="font-size:24px">
+                  EEG - biophysical models - coupled oscillators
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Coupled oscillators close to criticality produce coherent but
+                  changing patterns, leading to 'global patterns'
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Microstates represent momentarily phase-coupled oscillator
+                  populations
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Loss of consciousness - loss of critical coupling
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Role of information processing and sharing across brain
+                  regions
                 </li>
               </ul>
             </div>
