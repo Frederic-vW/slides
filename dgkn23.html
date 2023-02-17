@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Periodic EEG features in light sleep and propofol sedation</title>
+    <meta name="description"
+          content="Recurrent EEG patterns">
+    <meta name="author" content="Frederic von Wegner">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <!-- <link rel="stylesheet" href="dist/theme/league.css" id="theme"> -->
+    <!--<link rel="stylesheet" href="dist/theme/white.css" id="theme"> -->
+    <link rel="stylesheet" href="dist/theme/simple.css" id="theme">
+    <!--
+    black, white, league, sky, beige, simple, serif, blood, night, moon, solarized
+    -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+    <!-- next line needed to stretch slides vertically:
+    https://github.com/hakimel/reveal.js/issues/180#issuecomment-217159099
+    -->
+    <link rel="stylesheet" href="./dgkn23/verticalfix.css">
+  </head>
+
+  <body>
+    <!--
+    In part 1 of the symposium, Frederic von Wegner based on information-theoretical
+    and spectral methods will show that EEG patterns occur with a periodicity
+    that is closely linked to state-typical frequencies observed at the single
+    electrode level. He will discuss the loss of recurrent EEG patterns as a
+    common feature of two different forms of reduced consciousness, namely light
+    sleep and sedation, and suggest that the generation of coherent scalp-wide
+    activity patterns might be a signature of intact awareness.</li>
+    -->
+    <div class="reveal">
+      <div class="slides">
+        <!-- Transitions: None, Fade, Slide, Convex, Concave, Zoom -->
+
+        <!-- SLIDE # 1: TITLE SLIDE -->
+        <section data-transition="fade">
+
+          <!-- header: title -->
+          <h3>Periodic EEG features in light sleep and propofol sedation</h3>
+          <!--
+          <p style="font-size:32px"><em>Frederic von Wegner, UNSW Sydney</em></p>
+          -->
+          <p style="font-size:26px"><em>Frederic von Wegner,
+            Milena Wiemers, Gesine Hermann, Inke Tödt, Enzo Tagliazucchi,
+            Helmut Laufs</em></p>
+          <!-- <p><img src="./images/unsw_logo.png" width=400></p> -->
+          <div style="overflow: hidden; width: 600px; margin: 0 auto;">
+            <!-- LEFT: head + EEG
+            <div style="float: left; width: 300px;">
+              <img src="./dgkn23/eeg_mayo.png" width=200;>
+            </div>
+            -->
+            <!-- <div style="float: left; width: 300px;"> -->
+            <!-- RIGHT: EEG grid animation -->
+              <video src="./dgkn23/20080514TT_avgref_t24000-24300_graph.mp4"
+                     width=240 autoplay controls loop preload>
+                Example EEG animation
+              </video>
+            <!--</div>-->
+          </div>
+          <p style="font-size:32px">DFG project: Objective EEG bed side
+            assessment of impaired consciousness in epilepsy</p>
+          <p><strong>DGKN 2023</strong></p>
+        </section>
+
+        <!-- SLIDE # 2: EEG BASICS -->
+        <section data-transition="fade">
+
+          <!-- EEG basics: cap and time-domain signals -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>EEG basics</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%; margin: 0 auto;">
+              <img src="./dgkn23/eeg_basics_standard_view.png" width=100%;>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- EEG: neurobiological background -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>EEG background</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- brain, EEG electrode, volume conduction -->
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/eeg_basics_brain.png" width=600>
+              </div>
+              <!-- EEG properties -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    EEG records electrical activity from several
+                    cm<sup>2</sup> of cortex
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    each electrode records PSPs of (tens of) millions of neurons
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    volume conduction averages (`smears`) source activity
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    EEG reflects excitability, neuronal synchrony, and connectivity
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- SLIDE # 3: MOTIVATION -->
+        <section data-transition="fade">
+
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute; top: 0; left: 0%; width: 100%; height: 5%;">
+              <h3>Motivation</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 70%; margin: 0 auto;">
+              <img src="./dgkn23/eeg_mental_interpolation.png" width=100%;>
+            </div>
+            <br>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute; top: 0; left: 0%; width: 100%; height: 5%;">
+              <h3>Example-1</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%; position: relative;">
+              <!-- Left: EEG alert, Right: EEG N1 -->
+              <div style="float: left; width: 100%;">
+                <img src="./dgkn23/eeg_alert_drowsy_N1.png">
+              </div>
+              <div class="fragment fade-left"
+                   style="float: left; position: absolute; bottom: 10%; left: 60%">
+                <span style="font-size: 52px; font-weight:bold">
+                  Sleep stage N1
+                </span>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute; top: 0; left: 0%; width: 100%; height: 5%;">
+              <h3>Example-2</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%; position: relative;">
+              <!-- Left: EEG alert, Right: EEG propofol -->
+              <div style="float: left; width: 100%;">
+                <img src="./dgkn23/eeg_alert_drowsy_propofol.png">
+              </div>
+              <div class="fragment fade-left"
+                   style="float: left; position: absolute; bottom: 10%; left: 60%">
+                <span style="font-size: 52px; font-weight:bold">
+                  Propofol
+                </span>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute; top: 0; left: 0%; width: 100%; height: 5%;">
+              <h3>Preliminary observations</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%; position: relative;">
+              <ul>
+                <li class="fragment fade-left" style="font-size:32px">
+                  EEG appears 'disorganzed' in both drowsy conditions
+                </li>
+                <br>
+                <li class="fragment fade-left" style="font-size:32px">
+                  Topographical organization seems to be lost
+                </li>
+                <br>
+                <li class="fragment fade-left" style="font-size:32px">
+                  Spectral organization seems to be lost
+                </li>
+                <br>
+                <li class="fragment fade-left" style="font-size:32px">
+                  <span style="font-weight: bold">Aim</span>:
+                  quantify these observations
+                </li>
+              </ul>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: DATA SETS -->
+        <section data-transition="fade">
+
+          <!-- data sets -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Data sets</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+
+              <!-- data set: sleep -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight: bold">
+                      Wake/sleep data set
+                    </span>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    n=32 healthy subjects
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Simultaneous EEG-fMRI recordings (fMRI not used here)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    30 channel EEG (subset of 10-10 system)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Sleep stages manually scored (AASM rules)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight: bold">
+                    Conditions:
+                    </span>
+                    wake (W), light sleep (N1)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Example publications:
+                    <span style="font-size: 80%">
+                      Brodbeck et al., 2012,
+                      Kuhn et al., 2014
+                      Tagliazucchi et al., 2012,
+                      von Wegner et al., 2017
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- data set: propofol -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight: bold">
+                      Propofol data set
+                    </span>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    n=20 neurologically healthy subjects
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    128-channel EEG ('clean' subset of 91 channels used)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Sedation levels monitored by propofol plasma concentration
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight: bold">
+                      Conditions:
+                    </span>
+                    baseline, mild and moderate sedation, recovery.
+                    <span style="font-weight:bold; font-size:20px">
+                      Note:
+                      <span style="font-weight:normal; font-size:20px">
+                        Moderate sedation: still responsive, reaction time delays
+                      </span>
+                    </span>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Published by:
+                    <span style="font-size: 80%">
+                      Chennu et al., PLoS Comp Biol 2016, data
+                      repository:
+                      https://www.repository.cam.ac.uk/handle/1810/252736
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: QUESTIONS -->
+        <section data-transition="fade">
+
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute; top: 0; left: 0%; width: 100%; height: 5%;">
+              <h3>Main questions</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div>
+              <ol>
+                <li class="fragment fade-left">
+                  Is EEG activity periodic at the global (scalp-wide) level?
+                </li>
+                <br>
+                <li class="fragment fade-left">
+                  Is periodicity a marker of reduced vigilance (consciousness) ?
+                </li>
+              </ol>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: MICROSTATES -->
+        <section data-transition="fade">
+
+          <!-- Microstate principles, Lehmann 1972 -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>EEG microstates
+                <span style="font-size: 35%">(Lehmann, 1972)</span>
+              </h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- Left: EEG alert, time domain -->
+              <div style="float: left; width: 60%;">
+                <img src="./dgkn23/eeg_alert_scalebar.png" width=1000>
+              </div>
+              <!-- Right: EEG grid animation -->
+              <div class="fragment fade-left"  style="float: left; width: 40%;">
+                <!--
+                <video src="./dgkn23/20080514TT_avgref_t24000-24300_graph.mp4"
+                       width=320 autoplay controls loop preload>
+                  Example EEG animation
+                </video>
+                -->
+                <img src="./dgkn23/S002R02_avgref_t0500-0800_graph.gif" width=90%;>
+              </div>
+            </div>
+            <div style="text-align: left">
+              How to summarize spatio-temporal information?
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- Microstate maps, clustering -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Step 1: Microstate maps</h3>
+            </div>
+            <br>
+            <br>
+
+            <div>
+              <br>
+              <img src="./dgkn23/microstates_principle.png" width=100%;>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+
+          </section>
+
+          <!-- Backfitting -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Step 2: Microstate sequence</h3>
+            </div>
+
+            <div>
+              <br>
+              <img src="./dgkn23/microstate_backfitting.png" width=100%;>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+
+          </section>
+
+          <!-- Microstate maps and brain netwokrs -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>EEG microstates and brain networks
+              </h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- Left: maps & brain networks -->
+              <br>
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/microstate_maps_networks.png" width=100%>
+              </div>
+              <!-- Right: explanations -->
+              <div class="fragment fade-left"  style="float: left; width: 40%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Resting-state microstate maps can be mapped to their
+                    likely (brain-wide) current sources
+                    <span style="font-size:75%">
+                      (Custo et al., Brain Connectivity, 2017)
+                    </span>
+                  </li>
+                  <br>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Map C seems to correspond to the default mode network (DMN),
+                    others are less clear
+                  </li>
+                  <br>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight:bold">
+                      Take-home:
+                    </span>
+                      when you see a microstate label (A..D), think "brain network"
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- Summary / compression -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Microstates and data compression</h3>
+            </div>
+
+            <div>
+              <br>
+              <ul>
+                <li class="fragment fade-left">
+                  Initial data set: 30 channels x 16 bit (for instance)
+                </li>
+                <br>
+                <li class="fragment fade-left">
+                  Microstate sequence: single letter (A...D) = 2 bit
+                </li>
+                <br>
+                <li class="fragment fade-left">
+                  Compression factor: 240
+                </li>
+                <br>
+                <li class="fragment fade-left">
+                  Question: can this (0.4%) encode enough information to capture
+                  subtle differences in alertness?
+                </li>
+              </ul>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: ANALYTIC METHODS -->
+        <section data-transition="fade">
+
+          <!-- Autoinformation analysis -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>
+                Analysis-1
+                <span style="font-size: 35%">(von Wegner, 2017)</span>
+              </h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 70%; margin: 0 auto;">
+              <img src="./dgkn23/microstates_mutual_information.png" width=100%;>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- Fourier analysis (characteristic functions) -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>
+                Analysis-2
+                <span style="font-size: 35%">(von Wegner, in prep.)</span>
+              </h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 70%; margin: 0 auto;">
+              <img src="./dgkn23/Fourier_characteristic.png" width=100%;>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- Wiener-Khintchine -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Comment</h3>
+              <div>Wiener-Khintchine theorem</div>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 70%; margin: 0 auto;">
+              <img src="./dgkn23/wiener-khintchine.png" width=100%;>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: PREVIOUS RESULTS -->
+        <section data-transition="fade">
+
+          <!-- periodicity -->
+          <section>
+            <!-- header: title -->
+            <div style="position:absolute;top:0;left:0%;width:100%;height:5%;">
+              <h3>Previous results</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- EEG animation -->
+              <div style="float: left; width: 50%;">
+                <video src="./dgkn23/20080514TT_frames3000_3500_osc_25fps.mp4"
+                       width=240 autoplay controls loop preload>
+                  Example EEG animation
+                </video>
+              </div>
+              <!-- comments -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    EEG topographies at rest are periodic
+                    (von Wegner, NeuroImage 2017, 2022)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Their frequency is approx. twice the alpha frequency (20 Hz)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Periodicity is quantified by information-theoretical measures
+                    <img src="./dgkn23/aif_wake.png" width=100%;>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Remaining question: frequency doubling?
+                    (10 Hz EEG &rarr; 20 Hz microstates)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position:absolute;bottom:0;left:10%;height:10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- frequency doubling -->
+          <section>
+            <!-- header: title -->
+            <div style="position:absolute;top:0;left:0%;width:100%;height:5%;">
+              <h3>Frequency doubling</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- frequency doubling -->
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/microstate_frequency_doubling.png"
+                     width=100%;>
+              </div>
+              <!-- EEG properties -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    Explained by the microstate algorithm - ignores polarity
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    EEG polarity inverts every 50 ms (half an alpha phase),
+                    both are mapped to microstate C (e.g. 48, 96 ms)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight:bold">
+                      Remember:
+                    </span>
+                    the microstate algorithm doubles the dominant EEG frequency
+                    <img src="./dgkn23/microstate_frequency_doubling_spectrum.png"
+                         width=100%;>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position:absolute;bottom:0;left:10%;height:10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: RESULTS -->
+        <section data-transition="fade">
+
+          <!-- broken topography ? -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Results</h3>
+              <div>
+                <span style="font-weight:bold">Question:
+                </span>
+                <span style="font-size:32px">
+                  Loss of consciousness - loss of topography?</div>
+                </span>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 70%; margin: 0 auto;">
+              <img src="./dgkn23/broken_topography.png" width=100%;>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- microstate maps sleep vs propofol -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Results</h3>
+              <div>Microstate maps in reduced consciousness</div>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 85%;">
+              <br>
+              <!-- Left: microstate maps sleep -->
+              <div class="fragment fade-left" style="float: left; width: 50%;">
+                <img src="./dgkn23/microstate_maps_sleep.png" width=420>
+              </div>
+              <!-- Right: microstate maps propofol -->
+              <div class="fragment fade-left" style="float: left; width: 50%;">
+                <img src="./dgkn23/microstate_maps_propofol.png" width=420>
+              </div>
+            </div>
+            <div class="fragment fade-left" style="float: left">
+              <span style="font-weight: bold; text-align: left; font-size: 36px">
+                Surprise:
+              </span>
+              <span style="font-size: 26px">
+                Microstate maps <em>don't change much</em> in sleep and propofol sedation.
+              </span>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- AIF propofol -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Results</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- AIF propofol -->
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/aif_propofol.png" width=80%;>
+              </div>
+              <!-- explanations -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight: bold">
+                      Autoinformation analysis - propofol
+                    </span>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    A, baseline (no propofol): microstates occur
+                    periodically (50 ms, 100 ms, ...) ~ 20 Hz
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    B, mild sedation (approx. 0.6 µg/ml):
+                    periodicity not affected
+                    (subjects behaviourally relatively normal, see Chennu et al.)
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    C, moderate sedation (approx. 1.2 µg/ml): periodicity attenuated
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    D, recovery: effects are  reversible
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- Spectra propofol -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Results</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- propofol spectral analysis -->
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/spectra_propofol.png" width=80%;>
+              </div>
+              <!-- explanations -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight: bold">
+                      Spectral analysis - propofol
+                    </span>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    A, baseline (no propofol): EEG main frequency (blue) 10 Hz,
+                    microstate sequences (black) 20 Hz
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    B, mild sedation (approx. 0.6 µg/ml):
+                    periodicity not affected
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    C, moderate sedation (approx. 1.2 µg/ml): EEG channels
+                    have additional beta and delta frequencies, alpha attenuated,
+                    microstate frequency peak at 20 Hz disappears
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    D, recovery: effects are  reversible
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- AIF sleep -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Results</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- AIF analysis sleep (W/N1) -->
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/aif_sleep.png" width=100%;>
+              </div>
+              <!-- explanations -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight: bold">
+                      Autoinformation analysis - sleep
+                    </span>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    W, wakeful: EEG main frequency (left) 10 Hz,
+                    microstate sequences (black) occur periodically
+                    (50 ms, 100 ms, ...) ~ 20 Hz
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    N1, light sleep: EEG channels (left) lose their periodicity,
+                    microstate sequences (right) too
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+          <!-- PSDs sleep -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+              <h3>Results</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div style="overflow: hidden; height: 90%;">
+              <!-- W/N1 spectral analysis -->
+              <div style="float: left; width: 50%;">
+                <img src="./dgkn23/psd512_sleep.png" width=100%;>
+              </div>
+              <!-- explanations -->
+              <div style="float: left; width: 50%;">
+                <br>
+                <ul>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    <span style="font-weight: bold">
+                      Spectral analysis - sleep
+                    </span>
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    W, wakeful: EEG main frequency (left) 10 Hz,
+                    microstate sequences ~ 20 Hz
+                  </li>
+                  <li class="fragment fade-left" style="font-size:24px">
+                    N1, light sleep: EEG channels (left) lose 10 Hz alpha
+                    periodicity, microstate sequences (right) too
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: CONCLUSIONS -->
+        <section data-transition="fade">
+
+          <!-- Conclusions -->
+          <section>
+            <!-- header: title -->
+            <div style="position: absolute; top: 0; left: 0%; width: 100%; height: 5%;">
+              <h3>Conclusions</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div>
+              <ul>
+                <li class="fragment fade-left" style="font-size:24px">
+                  EEG microstate sequences capture spatial (topographic) and temporal
+                  characteristics simultaneously
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  EEG patterns occur periodically, closely linked to the
+                  individual's alpha frequency during wakefulness (explain
+                  frequency doubling?)
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Loss of periodicity as a common feature of reduced consciousness
+                  in light sleep and propofol sedation
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Single electrode level is not a good predictor of global
+                  synchrony (propofol, moderate sedation)
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  In the analyzed conditions, periodic, coherent scalp-wide
+                  EEG patterns are a signature of intact vigilance (awareness,
+                  consciousness)
+                </li>
+              </ul>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+            <!--
+            <br>
+            <div class="fragment">
+              <a href="#" class="navigate-down">
+                <img class="r-frame" style="background: rgba(255,255,255,0.1);"
+                     width="80"
+                     data-src="https://static.slid.es/reveal/arrow.png"
+                     alt="Down arrow">
+              </a>
+            </div>
+            -->
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: OUTLOOK / EXPLANATIONS -->
+        <section data-transition="fade" data-visibility="hidden">
+
+          <!-- Outlook -->
+          <section>
+            <!-- header: title -->
+            <div style="position:absolute; top:0; left:0%; width:100%; height:5%;">
+              <h3>Explanations & Outlook</h3>
+            </div>
+
+            <!-- main slide content -->
+            <div>
+              <ul>
+                <li class="fragment fade-left" style="font-size:24px">
+                  EEG - biophysical models - coupled oscillators
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Coupled oscillators close to criticality produce coherent but
+                  changing patterns, leading to 'global patterns'
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Microstates represent momentarily phase-coupled oscillator
+                  populations
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Loss of consciousness - loss of critical coupling
+                </li>
+                <li class="fragment fade-left" style="font-size:24px">
+                  Role of information processing and sharing across brain
+                  regions
+                </li>
+              </ul>
+            </div>
+
+            <!-- footer -->
+            <div style="position: absolute; bottom: 0; left: 10%; height: 10%;">
+              <img src="./dgkn23/banner_transparent.png" width=100%;>
+            </div>
+            <!--
+            <br>
+            <div class="fragment">
+              <a href="#" class="navigate-down">
+                <img class="r-frame" style="background: rgba(255,255,255,0.1);"
+                     width="80"
+                     data-src="https://static.slid.es/reveal/arrow.png"
+                     alt="Down arrow">
+              </a>
+            </div>
+            -->
+          </section>
+
+        </section>
+
+        <!-- SLIDE # X: ACKNOWLEDGMENTS -->
+        <section data-transition="fade">
+          <!-- header: title -->
+          <div style="position: absolute;top: 0;left: 0%;width: 100%;height: 5%;">
+            <h3>Thank you!</h3>
+          </div>
+
+          <!-- main slide content -->
+          <p>This project is a collaborative effort funded by the DFG<p>
+          <ul>
+            <li style="font-size:32px">
+              Helmut Laufs
+            </li>
+            <li style="font-size:32px">
+              Gesine Hermann
+            </li>
+            <li style="font-size:32px">
+              Inken Toedt
+            </li>
+            <li style="font-size:32px">
+              Enzo Tagliazucchi
+            </li>
+            <li style="font-size:32px">
+              Frederic von Wegner (f.vonwegner@unsw.edu.au)
+            </li>
+          </ul>
+        </section>
+
+      </div> <!-- class="slides" -->
+    </div> <!-- class="reveal" -->
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        center: true,
+        controls: true,
+        hash: true,
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight],
+        progress: true,
+        slideNumber: true,
+      });
+    </script>
+  </body>
+</html>
